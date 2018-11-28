@@ -11,9 +11,10 @@
 
 \title{Notes for ray trancing}
 
-\author[1,*]{Yue-Wen Fang}
+\author[1,*,$\dagger$]{Yue-Wen Fang}
 \affil[1]{Key Laboratory of Polar Materials and Devices, Ministry of Education, Department of Electronic Engineering, East China Normal University, Shanghai, 200241, China}
-\affil[*]{fyuewen@gmail.com or fyuewen@protonmail.ch}
+\affil[*]{Present address: Kyoto University}
+\affil{$\dagger$~fyuewen@gmail.com or fyuewen@protonmail.ch}
 %\affil[+]{these authors contributed equally to this work}
 \newcommand*{\PV}{POV-Ray}
 \newcommand*{\DF}{Definition in English}
@@ -41,7 +42,7 @@ Ray-tracing is a significant method for design. Here, the author presents his no
 This part will guide you how to generate your first image by \PV.
 \subsection{The first scene}
 \subsubsection{The coordinate system}
-The \PV sticks with a so called "left-handed system", in which we point our \textbf{thumb} in the direction of \emph{\textbf{x}}, the \textbf{index} finger in the direction of \emph{\textbf{y}} and the \textbf{middle} finger in the positive \emph{\textbf{z}} direction.\\
+The \PV~sticks with a so called "left-handed system", in which we point our \textbf{thumb} in the direction of \emph{\textbf{x}}, the \textbf{index} finger in the direction of \emph{\textbf{y}} and the \textbf{middle} finger in the positive \emph{\textbf{z}} direction.\\
 
 %\begin{figure}[htbp]
 %\centering
@@ -123,7 +124,7 @@ Create a file called demo.pov. The \PV-v3.7 in windows has a built-in text edito
 After creating the demo.pov, type the following text,\\
 \textcolor[rgb]{0.2,0.1,1}{\emph{\#}include "colors.inc"}\ \ \     // The include files contain \\
 \textcolor[rgb]{0.2,0.1,1}{\emph{\#}include "stones.inc"}\ \ \     // pre-defined scene elements\\
-where '//' is the comment character. Line-1 reads in defections for various useful colors and Line-2 reads in a collection of stone textures (\DF: the surface of a material, the structure of a woven fabric). \PV provides many interesting include files as the following lines show:\\
+where '//' is the comment character. Line-1 reads in defections for various useful colors and Line-2 reads in a collection of stone textures (\DF: the surface of a material, the structure of a woven fabric). \PV~provides many interesting include files as the following lines show:\\
 \textcolor[rgb]{0.2,0.1,1}{\emph{\#}include "texture.inc"}\ \ \     // The include files contain\\
 \textcolor[rgb]{0.2,0.1,1}{\emph{\#}include "shapes.inc"}\ \ \     // pre-defined scene elements\\
 \textcolor[rgb]{0.2,0.1,1}{\emph{\#}include "glass.inc"}\ \ \     // pre-defined scene elements\\
@@ -163,7 +164,7 @@ or \\
 \subsubsection{Defining a light source}
 We have created an object with specific texture, so we need a light to illuminate it by adding the line \\
 \textcolor[rgb]{0.2,0.1,1}{light$\_$source {$\langle$2, 4, -3$\rangle$ color \textbf{W}hite}} \\
-to the scene file to get our first complete \PV scene file as shown below.\\
+to the scene file to get our first complete \PV~scene file as shown below.\\
 \textcolor[rgb]{0.2,0.1,1}{\emph{\#}include "colors.inc"}\ \ \     // The include files contain \\
 \textcolor[rgb]{0.2,0.1,1}{background \{color \textbf{C}yan\}}\ \ \ // defining color of background \\
 \textcolor[rgb]{0.2,0.1,1}{camera\{}  \\
@@ -294,9 +295,9 @@ checker color Red, color Blue  \\
 \}  \\
 } \\
 \newline
-The object defined here is an infinite plane. $\langle$0, 1, 0$\rangle$ defines the surface normal of the plane. The number afterward (-1) is the distance that the plane is displaced along the normal from the origin. We use -1 so that the sphere and the cylinder are on the "floor". Here even though we do not use a \textbf{texture} statement there is an implied (\DF: not directly expressed) texture here. It is tiresome if we continually (\DF: recurring frequently) typing statements that are nested like \textbf{texture \{pigment\}}, so \PV let us leave out the \textbf{texture} under many circumstances. In general we only need the texture block surrounding a texture identifier (e.g. T\_Stone25 in the previous examples), or when creating layered textures which will be covered later. \\
+The object defined here is an infinite plane. $\langle$0, 1, 0$\rangle$ defines the surface normal of the plane. The number afterward (-1) is the distance that the plane is displaced along the normal from the origin. We use -1 so that the sphere and the cylinder are on the "floor". Here even though we do not use a \textbf{texture} statement there is an implied (\DF: not directly expressed) texture here. It is tiresome if we continually (\DF: recurring frequently) typing statements that are nested like \textbf{texture \{pigment\}}, so \PV~let us leave out the \textbf{texture} under many circumstances. In general we only need the texture block surrounding a texture identifier (e.g. T\_Stone25 in the previous examples), or when creating layered textures which will be covered later. \\
 \newline
-Besides, in the example, pigment uses the checker color pattern and specifies that the two colors red and blue should be used. Because the vectors $\langle$1, 0, 0$\rangle$, $\langle$0, 1, 0$\rangle$ and $\langle$0, 0, 1$\rangle$ are used frequently thus \PV has provided us three built-in vector identifiers x, y and z respectively that can be used as a shorthand. Thus the plane could be defines as:\\
+Besides, in the example, pigment uses the checker color pattern and specifies that the two colors red and blue should be used. Because the vectors $\langle$1, 0, 0$\rangle$, $\langle$0, 1, 0$\rangle$ and $\langle$0, 0, 1$\rangle$ are used frequently thus \PV~has provided us three built-in vector identifiers x, y and z respectively that can be used as a shorthand. Thus the plane could be defines as:\\
 \textcolor[rgb]{0.2,0.1,1}
 {
 plane \{ \\
@@ -316,7 +317,7 @@ Look at Fig. \ref{fig:FIG6}, a precise, sharp shadow is created by the ray-trace
 
 
 \subsubsection{Torus object}
-A torus is a ring-shaped surface that can be thought as a donut or an inner-tube. It is a kind of useful Constructive Solid Geometry (CSG) so \PV has adopted this 4th order quartic polynominal as a primitive shape. In \PV, the major and minor radius is defines as shown in Fig. \ref{fig:FIG7}a. The syntax for a torus is so simple that it makes it a very easy shape to work with once we learn what the two float values mean. Now, let's produce it!\\
+A torus is a ring-shaped surface that can be thought as a donut or an inner-tube. It is a kind of useful Constructive Solid Geometry (CSG) so \PV~has adopted this 4th order quartic polynominal as a primitive shape. In \PV, the major and minor radius is defines as shown in Fig. \ref{fig:FIG7}a. The syntax for a torus is so simple that it makes it a very easy shape to work with once we learn what the two float values mean. Now, let's produce it!\\
 \newline
 We create a file called \textbf{tordemo.pov} and edit it as follows:\\
 {\color{blue}
@@ -545,7 +546,7 @@ Yew, Fig. \ref{fig:FIG10b} is what we just generate using \PV. It's cool. In ord
 \end{subfigure}
 \caption{\textbf{Torus} Construction a link from torus and cylinders.} \label{}
 \end{figure}
-Yes, we have got a single link. But we are not done yet! I used two colors in the link to let you have a deep insight of how \PV works with these objects. Now we need use a nice metallic color instead. \\
+Yes, we have got a single link. But we are not done yet! I used two colors in the link to let you have a deep insight of how \PV~works with these objects. Now we need use a nice metallic color instead. \\
 \textbf{\{This part is finished in  29 November, 2015\}}\\
 First,
 

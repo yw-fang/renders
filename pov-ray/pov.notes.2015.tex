@@ -39,7 +39,7 @@ Ray-tracing is a significant method for design. Here, the author presents his no
 \renewcommand{\thesubsection}{\arabic{subsection}}  %rename the stype of subsection. you can use roman and alpha to replace arabic
 
 \section*{Getting started}
-This part will guide you how to generate your first image by \PV.
+This section will guide to generate your first image by using \PV.
 \subsection{The first scene}
 \subsubsection{The coordinate system}
 The \PV~sticks with a so called "left-handed system", in which we point our \textbf{thumb} in the direction of \emph{\textbf{x}}, the \textbf{index} finger in the direction of \emph{\textbf{y}} and the \textbf{middle} finger in the positive \emph{\textbf{z}} direction.\\
@@ -84,7 +84,7 @@ The \PV~sticks with a so called "left-handed system", in which we point our \tex
   \pgfmathsetmacro{\bx}{1}
   \pgfmathsetmacro{\by}{0}
   \pgfmathsetmacro{\bz}{-2}
-  \draw[very thick,->,blue] (2,0,3) node[anchor=north]{camera} -- (\bx,\by,\bz) node[anchor=north]{look\_at};
+  \draw[very thick,->,blue] (2.,0,3) node[anchor=north]{camera} -- (\bx,\by,\bz) node[anchor=north]{look\_at};
 
    % vector 3 (projection)
   \pgfmathsetmacro{\cx}{\ax*1.2}
